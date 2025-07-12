@@ -41,7 +41,7 @@ Permitir o gerenciamento completo de competições esportivas internas do IFS, i
 
 ---
 
-## Modelo de domínio ChampIFS
+## Diagrama DER (Entidade-Relacionamento) ChampIFS
 
 <img width="1753" height="1240" alt="champifs-model" src="https://github.com/user-attachments/assets/0ebc8bd1-ae1f-4c3d-9005-bf4bb9593292" />
 
