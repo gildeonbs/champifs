@@ -35,7 +35,7 @@ Permitir o gerenciamento completo de competições esportivas internas do IFS, i
 - `controller/` → Camada de controle (REST)
 - `service/` → Lógica de negócio
 - `repository/` → Interfaces JPA para persistência
-- `model/` → Entidades JPA
+- `entities/` → Entidades JPA
 - `dto/` → Objetos de transferência de dados
 - `config/` → Configurações gerais do projeto
 
