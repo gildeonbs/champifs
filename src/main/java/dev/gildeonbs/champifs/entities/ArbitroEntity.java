@@ -3,7 +3,6 @@ package dev.gildeonbs.champifs.entities;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
-import org.springframework.security.config.annotation.web.headers.HeadersSecurityMarker;
 
 import java.util.ArrayList;
 import java.util.List;
