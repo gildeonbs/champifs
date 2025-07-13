@@ -59,6 +59,6 @@ public class JogoEntity {
     private Boolean woEquipeB;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_arbrito_fk", nullable = false)
+    @JoinColumn(name = "id_arbitro_fk", nullable = false)
     private ArbitroEntity arbitro;
 }

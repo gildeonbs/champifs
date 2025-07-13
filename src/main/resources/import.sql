@@ -35,20 +35,11 @@ INSERT INTO eqp_equipe (nome_equipe, id_esporte_fk, id_evento_fk, id_curso_fk) V
 INSERT INTO eqp_equipe (nome_equipe, id_esporte_fk, id_evento_fk, id_curso_fk) VALUES ('Tinha que ser de Redes', 2, 1, 3); -- Vôlei, Redes
 INSERT INTO eqp_equipe (nome_equipe, id_esporte_fk, id_evento_fk, id_curso_fk) VALUES ('EletoMec', 1, 1, 4); -- Futebol, Eletromecânica
 
--- Inserindo dados na tabela de Atletas (depende de eqp_equipe)
--- Assumindo id_equipe_fk (1: BSI, 2: Elétrica, 3: Medicina, 4: Direito)
-INSERT INTO usr_atleta (nome_completo_atleta, matricula_atleta, telefone_atleta, senha_hash, id_equipe_fk, tipo) VALUES ('João Silva', '20230101', '79911111111', '$2y$10$....', 1, 'Capitão');
-INSERT INTO usr_atleta (nome_completo_atleta, matricula_atleta, telefone_atleta, senha_hash, id_equipe_fk, tipo) VALUES ('Pedro Martins', '20230102', '79911111112', '$2y$10$....', 1, 'Atleta');
-INSERT INTO usr_atleta (nome_completo_atleta, matricula_atleta, telefone_atleta, senha_hash, id_equipe_fk, tipo) VALUES ('Lucas Santos', '20220201', '79922222221', '$2y$10$....', 2, 'Capitão');
-INSERT INTO usr_atleta (nome_completo_atleta, matricula_atleta, telefone_atleta, senha_hash, id_equipe_fk, tipo) VALUES ('Maria Oliveira', '20210301', '79933333331', '$2y$10$....', 3, 'Capitão');
-INSERT INTO usr_atleta (nome_completo_atleta, matricula_atleta, telefone_atleta, senha_hash, id_equipe_fk, tipo) VALUES ('Julia Almeida', '20210302', '79933333332', '$2y$10$....', 3, 'Atleta');
-INSERT INTO usr_atleta (nome_completo_atleta, matricula_atleta, telefone_atleta, senha_hash, id_equipe_fk, tipo) VALUES ('Marcos Lima', '20200401', '79944444441', '$2y$10$....', 4, 'Capitão');
-
 -- Inserindo dados na tabela de Grupos (depende de evt_evento)
 INSERT INTO grp_grupo (codigo_grupo, id_evento_fk) VALUES ('FUTSAL-A', 1);
 INSERT INTO grp_grupo (codigo_grupo, id_evento_fk) VALUES ('BASQUETE-A', 1);
 INSERT INTO grp_grupo (codigo_grupo, id_evento_fk) VALUES ('VOLEI-A', 1);
-INSERT INTO grp_grupo (codigo_grupo, id_evento_fk) VALUES ('FUT-CAMPO-A', 1);
+INSERT INTO grp_grupo (codigo_grupo, id_evento_fk) VALUES ('FUT-CAM-A', 1);
 
 -- Inserindo dados na tabela de associação grp_equipe (Muitos-para-Muitos entre Grupo e Equipe)
 -- Assumindo id_grupo_fk (1: Futsal, 2: Basquete, 3: Vôlei, 4: Futebol de Campo)
@@ -57,11 +48,20 @@ INSERT INTO grp_equipe (id_grupo_fk, id_equipe_fk) VALUES (1, 1); -- Grupo Futsa
 INSERT INTO grp_equipe (id_grupo_fk, id_equipe_fk) VALUES (2, 2); -- Grupo Basquete <- Equipe Elétrica Volts
 INSERT INTO grp_equipe (id_grupo_fk, id_equipe_fk) VALUES (3, 3); -- Grupo Vôlei <- Equipe Medicina Serpentes
 
+-- Inserindo dados na tabela de Atletas (depende de eqp_equipe)
+-- Assumindo id_equipe_fk (1: BSI, 2: Elétrica, 3: Medicina, 4: Direito)
+INSERT INTO usr_atleta (nome_comp_atleta, apelido_atleta, matricula_atleta, telefone_atleta, senha_hash, id_equipe_fk, tipo) VALUES ('João Silva', 'Jão', '20230101', '79911111111', '$2y$10$....', 1, 'Capitão');
+INSERT INTO usr_atleta (nome_comp_atleta, apelido_atleta, matricula_atleta, telefone_atleta, senha_hash, id_equipe_fk, tipo) VALUES ('Pedro Martins', 'MC Pedrinho', '20230102', '79911111112', '$2y$10$....', 1, 'Atleta');
+INSERT INTO usr_atleta (nome_comp_atleta, apelido_atleta, matricula_atleta, telefone_atleta, senha_hash, id_equipe_fk, tipo) VALUES ('Lucas Santos', 'Simba', '20220201', '79922222221', '$2y$10$....', 2, 'Capitão');
+INSERT INTO usr_atleta (nome_comp_atleta, apelido_atleta, matricula_atleta, telefone_atleta, senha_hash, id_equipe_fk, tipo) VALUES ('Maria Oliveira', 'Maruaia', '20210301', '79933333331', '$2y$10$....', 3, 'Capitão');
+INSERT INTO usr_atleta (nome_comp_atleta, apelido_atleta, matricula_atleta, telefone_atleta, senha_hash, id_equipe_fk, tipo) VALUES ('Julia Almeida', 'Ju', '20210302', '79933333332', '$2y$10$....', 3, 'Atleta');
+INSERT INTO usr_atleta (nome_comp_atleta, apelido_atleta, matricula_atleta, telefone_atleta, senha_hash, id_equipe_fk, tipo) VALUES ('Marcos Lima', 'Marcola', '20200401', '79944444441', '$2y$10$....', 4, 'Capitão');
+
 -- Inserindo dados na tabela de Jogos (depende de várias tabelas)
 -- Assumindo IDs das equipes, árbitros, grupos e evento.
 -- Para simplificar, o primeiro jogo será entre as equipes 1 e uma hipotética equipe 5 (não cadastrada para exemplo)
-INSERT INTO jgv_jogo (id_grupo_fk, fase_jogo, data_jogo, hora_jogo, id_equipe_a_fk, id_equipe_b_fk, placar_a, placar_b, wo_equipe_a, wo_equipe_b, id_arbitro_fk, id_coord_fk, id_evento_fk) VALUES (1, 'Fase de Grupos', '2025-09-15', '19:00:00', 1, 1, 0, 0, false, false, 1, 1, 1); -- Jogo de exemplo, placar 0x0, sem W.O. BSI Caimans vs BSI Caimans (deveria ser outra equipe do mesmo grupo)
-INSERT INTO jgv_jogo (id_grupo_fk, fase_jogo, data_jogo, hora_jogo, id_equipe_a_fk, id_equipe_b_fk, placar_a, placar_b, wo_equipe_a, wo_equipe_b, id_arbitro_fk, id_coord_fk, id_evento_fk) VALUES (2, 'Fase de Grupos', '2025-09-15', '20:00:00', 2, 2, 0, 0, false, false, 2, 1, 1); -- Elétrica Volts vs Elétrica Volts
-INSERT INTO jgv_jogo (id_grupo_fk, fase_jogo, data_jogo, hora_jogo, id_equipe_a_fk, id_equipe_b_fk, placar_a, placar_b, wo_equipe_a, wo_equipe_b, id_arbitro_fk, id_coord_fk, id_evento_fk) VALUES (3, 'Fase de Grupos', '2025-09-16', '19:00:00', 3, 3, 0, 0, false, false, 1, 1, 1); -- Medicina Serpentes vs Medicina Serpentes
+INSERT INTO jgs_jogo (id_grupo_fk, fase_jogo, data_jogo, hora_jogo, id_equipe_a_fk, id_equipe_b_fk, placar_a, placar_b, wo_equipe_a, wo_equipe_b, id_arbitro_fk, id_evento_fk) VALUES (1, 'Fase de Grupos', '2025-09-15', '19:00:00', 1, 1, 0, 0, false, false, 1,  1); -- Jogo de exemplo, placar 0x0, sem W.O. BSI Caimans vs BSI Caimans (deveria ser outra equipe do mesmo grupo)
+INSERT INTO jgs_jogo (id_grupo_fk, fase_jogo, data_jogo, hora_jogo, id_equipe_a_fk, id_equipe_b_fk, placar_a, placar_b, wo_equipe_a, wo_equipe_b, id_arbitro_fk, id_evento_fk) VALUES (2, 'Fase de Grupos', '2025-09-15', '20:00:00', 2, 2, 0, 0, false, false, 2, 1); -- Elétrica Volts vs Elétrica Volts
+INSERT INTO jgs_jogo (id_grupo_fk, fase_jogo, data_jogo, hora_jogo, id_equipe_a_fk, id_equipe_b_fk, placar_a, placar_b, wo_equipe_a, wo_equipe_b, id_arbitro_fk, id_evento_fk) VALUES (3, 'Fase de Grupos', '2025-09-16', '19:00:00', 3, 3, 0, 0, false, false, 1,  1); -- Medicina Serpentes vs Medicina Serpentes
 
 -- Fim do script
