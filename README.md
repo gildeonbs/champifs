@@ -66,7 +66,7 @@ Permitir o gerenciamento completo de competições esportivas internas do IFS, i
 
 ```bash
 # Clone o projeto
-git clone https://github.com/seu-usuario/champifs.git
+git clone https://github.com/gildeonbs/champifs.git
 cd champifs
 
 # Compile e execute
