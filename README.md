@@ -59,17 +59,4 @@ Permitir o gerenciamento completo de competições esportivas internas do IFS, i
 </plugin>
 ```
 
----
-
-
-## 🚀 Como rodar localmente
-
-```bash
-# Clone o projeto
-git clone https://github.com/gildeonbs/champifs.git
-cd champifs
-
-# Compile e execute
-./mvnw spring-boot:run
-```
 
