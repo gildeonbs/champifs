@@ -14,6 +14,8 @@ public class ArbitroDTO {
     private String matricula;
     //private String senha;
 
+    public ArbitroDTO() {}
+
     public ArbitroDTO(ArbitroEntity entity) {
         BeanUtils.copyProperties(entity, this);
     }
