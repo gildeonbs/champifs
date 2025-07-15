@@ -1,14 +1,15 @@
 package dev.gildeonbs.champifs.services;
 
-import dev.gildeonbs.champifs.dto.EquipeDTO;
 import dev.gildeonbs.champifs.dto.EsporteDTO;
 import dev.gildeonbs.champifs.entities.EsporteEntity;
 import dev.gildeonbs.champifs.repository.EsporteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
+@Service
 public class EsporteService {
 
     @Autowired

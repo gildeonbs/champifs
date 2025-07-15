@@ -4,10 +4,12 @@ import dev.gildeonbs.champifs.dto.CoordenadorDTO;
 import dev.gildeonbs.champifs.entities.CoordenadorEntity;
 import dev.gildeonbs.champifs.repository.CoordenadorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
+@Service
 public class CoordenadorService {
 
     @Autowired
