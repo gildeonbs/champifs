@@ -5,11 +5,16 @@ import dev.gildeonbs.champifs.entities.EquipeEntity;
 import dev.gildeonbs.champifs.entities.EsporteEntity;
 import dev.gildeonbs.champifs.entities.EventoEntity;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.beans.BeanUtils;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Getter
 @Setter
+@NoArgsConstructor
 public class EquipeDTO {
 
     private Long id;
@@ -18,10 +23,16 @@ public class EquipeDTO {
     private EsporteEntity esporte;
     private EventoEntity evento;
 
-    public EquipeDTO() {}
+    private List<AtletaMinDTO> atletas = new ArrayList<>();
 
     public EquipeDTO(EquipeEntity entity) {
-        BeanUtils.copyProperties(entity, this);
-    }
+        id = entity.getId();
+        nome = entity.getNome();
+        curso = entity.getCurso();
+        esporte = entity.getEsporte();
+        evento = entity.getEvento();
 
+        atletas = entity.getAtletas().stream().map(AtletaMinDTO::new).collect(Collectors.toList());
+
+    }
 }

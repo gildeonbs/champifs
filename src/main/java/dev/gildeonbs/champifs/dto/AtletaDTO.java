@@ -1,13 +1,13 @@
 package dev.gildeonbs.champifs.dto;
 
 import dev.gildeonbs.champifs.entities.AtletaEntity;
-import dev.gildeonbs.champifs.entities.EquipeEntity;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.beans.BeanUtils;
 
 @Getter
 @Setter
+@NoArgsConstructor
 public class AtletaDTO {
 
     private Long id;
@@ -15,14 +15,20 @@ public class AtletaDTO {
     private String apelido;
     private String matricula;
     private String telefone;
-    //private String senhaHash;
+    private String senhaHash;
     private String tipo;
-    private EquipeEntity equipe;
-
-    public AtletaDTO() {}
+    private EquipeMinDTO equipe;
 
     public AtletaDTO(AtletaEntity entity) {
-        BeanUtils.copyProperties(entity, this);
+        id = entity.getId();
+        nomeCompleto = entity.getNomeCompleto();
+        apelido = entity.getApelido();
+        matricula = entity.getMatricula();
+        telefone = entity.getTelefone();
+        senhaHash = entity.getSenhaHash();
+        tipo = entity.getTipo();
+        if (entity.getEquipe() != null) {
+            equipe = new EquipeMinDTO(entity.getEquipe());
+        }
     }
-
 }
