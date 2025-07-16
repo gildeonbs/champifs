@@ -18,7 +18,7 @@ public class ArbitroService {
     @Transactional(readOnly = true)
     public List<ArbitroDTO> findAll() {
         List<ArbitroEntity> result = arbitroRepository.findAll();
-        List<ArbitroDTO> arbitroDTOS = result.stream().map(x -> new ArbitroDTO(x)).toList();
-        return arbitroDTOS;
+        List<ArbitroDTO> arbitroDTOs = result.stream().map(x -> new ArbitroDTO(x)).toList();
+        return arbitroDTOs;
     }
 }

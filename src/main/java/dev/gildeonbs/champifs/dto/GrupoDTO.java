@@ -10,7 +10,7 @@ import org.springframework.beans.BeanUtils;
 @Setter
 public class GrupoDTO {
 
-    private long id;
+    private Long id;
     private String codigo;
     private EventoEntity evento;
 

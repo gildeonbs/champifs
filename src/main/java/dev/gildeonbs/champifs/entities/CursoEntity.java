@@ -20,7 +20,7 @@ public class CursoEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @EqualsAndHashCode.Include
     @Column(name = "id_curso", nullable = false)
-    private long id;
+    private Long id;
 
     @Column(name = "nome_curso", length = 100, nullable = false)
     private String nome;

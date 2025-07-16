@@ -18,7 +18,7 @@ public class AtletaService {
     @Transactional(readOnly = true)
     public List<AtletaDTO> findAll() {
         List<AtletaEntity> result = atletaRepository.findAll();
-        List<AtletaDTO> atletaDTOS = result.stream().map(x -> new AtletaDTO(x)).toList();
-        return atletaDTOS;
+        List<AtletaDTO> atletaDTOs = result.stream().map(x -> new AtletaDTO(x)).toList();
+        return atletaDTOs;
     }
 }

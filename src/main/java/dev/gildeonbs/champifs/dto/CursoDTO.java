@@ -11,7 +11,7 @@ import org.springframework.beans.BeanUtils;
 @Setter
 public class CursoDTO {
 
-    private long id;
+    private Long id;
     private String nome;
     private String nivel;
     private CoordenadorEntity coordenador;

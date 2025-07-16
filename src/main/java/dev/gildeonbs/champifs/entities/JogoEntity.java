@@ -38,11 +38,11 @@ public class JogoEntity {
     @Column(name = "hora_jogo", nullable = false)
     private LocalTime hora;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_equipe_a_fk", nullable = false)
     private EquipeEntity equipeA;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_equipe_b_fk", nullable = false)
     private EquipeEntity equipeB;
 

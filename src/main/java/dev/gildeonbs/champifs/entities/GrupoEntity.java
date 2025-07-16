@@ -20,7 +20,7 @@ public class GrupoEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_grupo", nullable = false)
     @EqualsAndHashCode.Include
-    private long id;
+    private Long id;
 
     @Column(name = "codigo_grupo", length = 10, nullable = false)
     private String codigo;

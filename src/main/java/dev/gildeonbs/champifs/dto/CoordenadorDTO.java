@@ -9,7 +9,7 @@ import org.springframework.beans.BeanUtils;
 @Setter
 public class CoordenadorDTO {
 
-    private long id;
+    private Long id;
     private String nome;
     private String matricula;
     private String email;

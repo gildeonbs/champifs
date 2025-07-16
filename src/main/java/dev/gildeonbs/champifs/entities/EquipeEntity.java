@@ -43,15 +43,4 @@ public class EquipeEntity {
     @JsonIgnore
     private List<AtletaEntity> atletas = new ArrayList<>();
 
-    /*
-    Se precisar fazer buscas reversas como equipe.getJogosComoEquipeA()
-    @OneToMany(mappedBy = "equipeA")
-    @JsonIgnore
-    private List<JogoEntity> jogosComoEquipeA = new ArrayList<>();
-
-    @OneToMany(mappedBy = "equipeB")
-    @JsonIgnore
-    private List<JogoEntity> jogosComoEquipeB = new ArrayList<>();
-    */
-
 }

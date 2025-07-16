@@ -9,7 +9,7 @@ import org.springframework.beans.BeanUtils;
 @Setter
 public class EsporteDTO {
 
-    private long id;
+    private Long id;
     private String nome;
     private Integer minJogadores;
     private Integer maxJogadores;

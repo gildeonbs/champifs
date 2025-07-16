@@ -20,7 +20,7 @@ public class EsporteEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_esporte", nullable = false)
     @EqualsAndHashCode.Include
-    private long id;
+    private Long id;
 
     @Column(name = "nome_esporte", length = 50, nullable = false)
     private String nome;

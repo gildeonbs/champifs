@@ -21,5 +21,4 @@ public class AtletaController {
         List<AtletaDTO> result = atletaService.findAll();
         return result;
     }
-
 }

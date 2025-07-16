@@ -20,7 +20,7 @@ public class ArbitroEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @EqualsAndHashCode.Include
     @Column(name = "id_arbitro")
-    private long id;
+    private Long id;
 
     @Column(name = "nome_arbitro", length = 100, nullable = false)
     private String nome;
