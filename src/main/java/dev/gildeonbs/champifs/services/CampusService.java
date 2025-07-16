@@ -1,8 +1,8 @@
 package dev.gildeonbs.champifs.services;
 
-import dev.gildeonbs.champifs.dto.GrupoDTO;
-import dev.gildeonbs.champifs.entities.GrupoEntity;
-import dev.gildeonbs.champifs.repository.GrupoRepository;
+import dev.gildeonbs.champifs.dto.CampusDTO;
+import dev.gildeonbs.champifs.entities.CampusEntity;
+import dev.gildeonbs.champifs.repository.CampusRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -13,13 +13,12 @@ import java.util.List;
 public class CampusService {
 
     @Autowired
-    private GrupoRepository grupoRepository;
+    private CampusRepository campusRepository;
 
     @Transactional(readOnly = true)
-    public List<GrupoDTO> findAll() {
-        List<GrupoEntity> result = grupoRepository.findAll();
-        List<GrupoDTO> gruposDTO = result.stream().map(x -> new GrupoDTO(x)).toList();
-        return gruposDTO;
+    public List<CampusDTO> findAll() {
+        List<CampusEntity> result = campusRepository.findAll();
+        List<CampusDTO> campusDTOs = result.stream().map(x -> new CampusDTO(x)).toList();
+        return campusDTOs;
     }
-
 }
