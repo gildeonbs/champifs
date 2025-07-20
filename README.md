@@ -59,4 +59,21 @@ Permitir o gerenciamento completo de competições esportivas internas do IFS, i
 </plugin>
 ```
 
+---
 
+## 🌐 Endpoints de Testes
+
+Abaixo estão listados os endpoints disponíveis para testes locais:
+
+```http
+GET http://localhost:8080/atletas
+GET http://localhost:8080/equipes
+GET http://localhost:8080/esportes
+GET http://localhost:8080/cursos
+GET http://localhost:8080/campi
+GET http://localhost:8080/coordenadores
+GET http://localhost:8080/grupos
+GET http://localhost:8080/eventos
+GET http://localhost:8080/jogos
+GET http://localhost:8080/arbitros
+```
