@@ -4,20 +4,18 @@ import dev.gildeonbs.champifs.entities.EsporteEntity;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.beans.BeanUtils;
 
 @Getter
 @Setter
 @NoArgsConstructor
-public class EsporteDTO {
+public class EsporteMinDTO {
 
     private Long id;
     private String nome;
-    private Integer minJogadores;
-    private Integer maxJogadores;
 
-    public EsporteDTO(EsporteEntity entity) {
-        BeanUtils.copyProperties(entity, this);
+    public EsporteMinDTO(EsporteEntity esporte) {
+        this.id = esporte.getId();
+        this.nome = esporte.getNome();
     }
 
 }

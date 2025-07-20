@@ -43,4 +43,12 @@ public class EquipeEntity {
     @JsonIgnore
     private List<AtletaEntity> atletas = new ArrayList<>();
 
+    @OneToMany(mappedBy = "equipeA", fetch = FetchType.LAZY)
+    @JsonIgnore
+    private List<JogoEntity> equipesA = new ArrayList<>();
+
+    @OneToMany(mappedBy = "equipeB", fetch = FetchType.LAZY)
+    @JsonIgnore
+    private List<JogoEntity> equipesB = new ArrayList<>();
+
 }

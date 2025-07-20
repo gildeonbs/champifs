@@ -1,26 +1,32 @@
 package dev.gildeonbs.champifs.dto;
 
-import dev.gildeonbs.champifs.entities.CampusEntity;
-import dev.gildeonbs.champifs.entities.CoordenadorEntity;
 import dev.gildeonbs.champifs.entities.CursoEntity;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.beans.BeanUtils;
 
 @Getter
 @Setter
+@NoArgsConstructor
 public class CursoDTO {
 
     private Long id;
     private String nome;
     private String nivel;
-    private CoordenadorEntity coordenador;
-    private CampusEntity campus;
-
-    public CursoDTO() {}
+    private CoordenadorMinDTO coordenador;
+    private CampusMinDTO campus;
 
     public CursoDTO(CursoEntity entity) {
-        BeanUtils.copyProperties(entity, this);
+        this.id = entity.getId();
+        this.nome = entity.getNome();
+        this.nivel = entity.getNivel();
+        if (entity.getCoordenador() != null) {
+            this.coordenador = new CoordenadorMinDTO(entity.getCoordenador());
+        }
+        if (entity.getCampus() != null) {
+            this.campus = new CampusMinDTO(entity.getCampus());
+        }
+
     }
 
 }

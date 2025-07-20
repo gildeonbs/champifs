@@ -8,18 +8,14 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-public class GrupoDTO {
+public class GrupoMinDTO {
 
     private Long id;
     private String codigo;
-    private EventoMinDTO evento;
 
-    public GrupoDTO(GrupoEntity entity) {
+    public GrupoMinDTO(GrupoEntity entity) {
         this.id = entity.getId();
         this.codigo = entity.getCodigo();
-        if (entity.getEvento() != null) {
-            this.evento = new EventoMinDTO(entity.getEvento());
-        }
     }
 
 }
