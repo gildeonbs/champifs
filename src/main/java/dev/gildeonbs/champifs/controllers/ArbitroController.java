@@ -3,10 +3,8 @@ package dev.gildeonbs.champifs.controllers;
 import dev.gildeonbs.champifs.dto.ArbitroDTO;
 import dev.gildeonbs.champifs.services.ArbitroService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -21,6 +19,16 @@ public class ArbitroController {
     public List<ArbitroDTO> findAll() {
         List<ArbitroDTO> result = arbitroService.findAll();
         return result;
+    }
+
+    @PostMapping
+    public ResponseEntity<?> criar(@RequestBody ArbitroDTO campusDTO) {
+        try {
+            ArbitroDTO dto = arbitroService.criar(campusDTO);
+            return ResponseEntity.ok().body(dto);
+        } catch (IllegalStateException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
     }
 
 }
