@@ -114,12 +114,12 @@ GET http://localhost:8080/cursos
 ```
 ```json
 {
-  "nome": "Informática",
+  "nome": "Informática para Internet",
   "nivel": "integrado",
-  "idCoordenador": {
+  "coordenador": {
     "id": 1
   },
-  "idCurso": {
+  "campus": {
     "id": 1
   }
 }
@@ -132,7 +132,7 @@ GET http://localhost:8080/arbitros
 ```
 ```json
 {
-  "nome": "Árbitro 1",
+  "nome": "José Moura",
   "matricula": "ARB2025001",
   "senhaHash": "arbitro123"
 }
