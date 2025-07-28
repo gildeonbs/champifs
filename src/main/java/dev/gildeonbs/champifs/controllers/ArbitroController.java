@@ -22,9 +22,9 @@ public class ArbitroController {
     }
 
     @PostMapping
-    public ResponseEntity<?> criar(@RequestBody ArbitroDTO campusDTO) {
+    public ResponseEntity<?> criar(@RequestBody ArbitroDTO arbitroDTO) {
         try {
-            ArbitroDTO dto = arbitroService.criar(campusDTO);
+            ArbitroDTO dto = arbitroService.criar(arbitroDTO);
             return ResponseEntity.ok().body(dto);
         } catch (IllegalStateException e) {
             return ResponseEntity.badRequest().body(e.getMessage());

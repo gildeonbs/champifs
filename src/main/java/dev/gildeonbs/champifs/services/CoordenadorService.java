@@ -21,4 +21,20 @@ public class CoordenadorService {
         List<CoordenadorDTO> coordenadorDTOs = result.stream().map(x -> new CoordenadorDTO(x)).toList();
         return coordenadorDTOs;
     }
+
+    @Transactional
+    public CoordenadorDTO criar(CoordenadorDTO dto) {
+        if (coordenadorRepository.existsByMatricula(dto.getMatricula())) {
+            throw new IllegalStateException("Já existe coordenador para esse matricula.");
+        }
+
+        CoordenadorEntity coordenadorEntity = new CoordenadorEntity();
+        coordenadorEntity.setNome(dto.getNome());
+        coordenadorEntity.setMatricula(dto.getMatricula());
+        coordenadorEntity.setEmail(dto.getEmail());
+        coordenadorEntity.setSenha(dto.getSenha());
+
+        return new CoordenadorDTO(coordenadorRepository.save(coordenadorEntity));
+
+    }
 }
