@@ -125,8 +125,6 @@ GET http://localhost:8080/cursos
 }
 ```
 
-
-
 ```http
 GET http://localhost:8080/arbitros
 ```
@@ -137,6 +135,19 @@ GET http://localhost:8080/arbitros
   "senhaHash": "arbitro123"
 }
 ```
+
+```http
+GET http://localhost:8080/coordenadores
+```
+```json
+{
+  "nome": "Mauro Tonho",
+  "matricula": "ARB20250201",
+  "email": "mt@mail.com.br",
+  "senhaHash": "arbitro123"
+}
+```
+
 
 
 
