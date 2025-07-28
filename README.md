@@ -108,3 +108,35 @@ POST http://localhost:8080/campi
   "nome": "Campus Itaporanga"
 }
 ```
+
+```http
+GET http://localhost:8080/cursos
+```
+```json
+{
+  "nome": "Informática",
+  "nivel": "integrado",
+  "idCoordenador": {
+    "id": 1
+  },
+  "idCurso": {
+    "id": 1
+  }
+}
+```
+
+
+
+```http
+GET http://localhost:8080/arbitros
+```
+```json
+{
+  "nome": "Árbitro 1",
+  "matricula": "ARB2025001",
+  "senhaHash": "arbitro123"
+}
+```
+
+
+
