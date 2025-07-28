@@ -23,9 +23,9 @@ public class CampusService {
     }
 
     @Transactional
-    public CampusDTO criar(CampusDTO campusDTO) {
-        CampusEntity campusEntity = new CampusEntity();
-        campusEntity.setNome(campusDTO.getNome());
-        return new CampusDTO(campusRepository.save(campusEntity));
+    public CampusDTO criar(CampusDTO dto) {
+        CampusEntity entity = new CampusEntity();
+        entity.setNome(dto.getNome());
+        return new CampusDTO(campusRepository.save(entity));
     }
 }

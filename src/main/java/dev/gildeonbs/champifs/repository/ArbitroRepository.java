@@ -5,4 +5,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface ArbitroRepository extends JpaRepository<ArbitroEntity, Long> {
 
+    boolean existsByMatricula(String matricula);
 }

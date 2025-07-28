@@ -21,4 +21,18 @@ public class ArbitroService {
         List<ArbitroDTO> arbitroDTOs = result.stream().map(x -> new ArbitroDTO(x)).toList();
         return arbitroDTOs;
     }
+
+    @Transactional
+    public ArbitroDTO criar(ArbitroDTO dto) {
+        if (arbitroRepository.existsByMatricula(dto.getMatricula())) {
+            throw new IllegalStateException("Já existe árbitro para esse matricula.");
+        }
+
+        ArbitroEntity arbitroEntity = new ArbitroEntity();
+        arbitroEntity.setNome(dto.getNome());
+        arbitroEntity.setMatricula(dto.getMatricula());
+        arbitroEntity.setSenha(dto.getNome());
+
+        return new ArbitroDTO(arbitroRepository.save(arbitroEntity));
+    }
 }
