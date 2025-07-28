@@ -12,6 +12,11 @@ import lombok.*;
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class GrupoEquipeEntity {
 
+    // Define o identificador (ID) da entidade como sendo composto, ou seja, formado por mais de um campo.
+    // Usa uma instância da classe GrupoEquipeEntityPK, que encapsula os campos da chave composta.
+    // Essa abordagem é útil quando a tabela possui uma chave primária baseada em múltiplas colunas.
+    // A instância do ID é "embutida" na entidade principal, e seus campos são tratados como parte da própria tabela.
+    // A JPA usa os valores desse ID embutido como base para persistência, buscas, comparações, etc.
     @EmbeddedId
     @EqualsAndHashCode.Include
     private GrupoEquipeEntityPK id = new GrupoEquipeEntityPK();

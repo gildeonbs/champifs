@@ -4,7 +4,9 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
 import lombok.*;
 
-
+// Classe que representa a chave primária composta da entidade GrupoEquipeEntity.
+// Essa classe é marcada com @Embeddable, o que indica ao JPA que ela pode ser incorporada em outras entidades.
+// Não é uma entidade independente no banco, mas sim um "componente" que será embutido na entidade principal.
 @Embeddable
 @Getter
 @Setter
