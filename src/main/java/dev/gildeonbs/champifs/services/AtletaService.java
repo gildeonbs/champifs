@@ -28,6 +28,10 @@ public class AtletaService {
 
     @Transactional
     public AtletaDTO criar(AtletaDTO dto) {
+        if (atletaRepository.existsByMatricula(dto.getMatricula())) {
+            throw new IllegalStateException("Já existe atleta para esse matricula.");
+        }
+
         AtletaEntity entity = new AtletaEntity();
         entity.setNomeCompleto(dto.getNomeCompleto());
         entity.setApelido(dto.getApelido());
@@ -37,12 +41,12 @@ public class AtletaService {
         entity.setTipo(dto.getTipo());
 
         if ("tecnico".equalsIgnoreCase(dto.getTipo()) && dto.getEquipe().getId() == null) {
-            throw new RuntimeException("Técnico precisa estar vinculado a uma equipe.");
+            throw new IllegalStateException("Técnico precisa estar vinculado a uma equipe.");
         }
 
         if (dto.getEquipe().getId() != null) {
             EquipeEntity equipe = equipeRepository.findById(dto.getEquipe().getId())
-                    .orElseThrow(() -> new RuntimeException("Equipe não encontrada"));
+                    .orElseThrow(() -> new IllegalStateException("Equipe não encontrada"));
             entity.setEquipe(equipe);
         }
 

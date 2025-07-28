@@ -101,18 +101,10 @@ POST http://localhost:8080/atletas
 
 
 ```http
-POST http://localhost:8080/atletas
+POST http://localhost:8080/campi
 ```
 ```json
 {
-  "nomeCompleto": "João Andrade",
-  "apelido": "João",
-  "matricula": "2023123001",
-  "telefone": "79999999999",
-  "senhaHash": "senha123",
-  "tipo": "tecnico",
-  "equipe": {
-    "id": 1
-  }
+  "nome": "Campus Itaporanga"
 }
 ```

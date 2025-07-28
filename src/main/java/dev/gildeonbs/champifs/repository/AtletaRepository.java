@@ -5,4 +5,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface AtletaRepository extends JpaRepository<AtletaEntity, Long> {
 
+    boolean existsByMatricula(String matricula);
 }
