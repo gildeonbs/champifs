@@ -144,7 +144,7 @@ GET http://localhost:8080/coordenadores
   "nome": "Mauro Tonho",
   "matricula": "ARB20250201",
   "email": "mt@mail.com.br",
-  "senhaHash": "arbitro123"
+  "senha": "arbitro123"
 }
 ```
 
