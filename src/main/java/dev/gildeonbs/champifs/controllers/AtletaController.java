@@ -3,9 +3,8 @@ package dev.gildeonbs.champifs.controllers;
 import dev.gildeonbs.champifs.dto.AtletaDTO;
 import dev.gildeonbs.champifs.services.AtletaService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -21,4 +20,15 @@ public class AtletaController {
         List<AtletaDTO> result = atletaService.findAll();
         return result;
     }
+
+    @PostMapping
+    public ResponseEntity<?> criar(@RequestBody AtletaDTO atletaDTO) {
+        try {
+            AtletaDTO dto =  atletaService.criar(atletaDTO);
+            return ResponseEntity.ok().body(dto);
+        } catch (IllegalStateException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+    }
+
 }

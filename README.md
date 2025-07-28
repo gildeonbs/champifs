@@ -65,6 +65,8 @@ Permitir o gerenciamento completo de competições esportivas internas do IFS, i
 
 Abaixo estão listados os endpoints disponíveis para testes locais:
 
+- Lista todos os registros por tipo:
+
 ```http
 GET http://localhost:8080/atletas
 GET http://localhost:8080/equipes
@@ -76,4 +78,41 @@ GET http://localhost:8080/grupos
 GET http://localhost:8080/eventos
 GET http://localhost:8080/jogos
 GET http://localhost:8080/arbitros
+```
+
+- Insere objeto por tipo:
+
+```http
+POST http://localhost:8080/atletas
+```
+```json
+{
+  "nomeCompleto": "João Andrade",
+  "apelido": "João",
+  "matricula": "2023123001",
+  "telefone": "79999999999",
+  "senhaHash": "senha123",
+  "tipo": "tecnico",
+  "equipe": {
+    "id": 1
+  }
+}
+```
+
+
+```http
+POST http://localhost:8080/atletas
+```
+```json
+{
+  "nomeCompleto": "João Andrade",
+  "apelido": "João",
+  "matricula": "2023123001",
+  "telefone": "79999999999",
+  "senhaHash": "senha123",
+  "tipo": "tecnico",
+  "equipe": {
+    "id": 1
+  }
+}
 ```

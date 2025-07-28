@@ -21,4 +21,11 @@ public class CampusService {
         List<CampusDTO> campusDTOs = result.stream().map(x -> new CampusDTO(x)).toList();
         return campusDTOs;
     }
+
+    @Transactional
+    public CampusDTO criar(CampusDTO campusDTO) {
+        CampusEntity campusEntity = new CampusEntity();
+        campusEntity.setNome(campusDTO.getNome());
+        return new CampusDTO(campusRepository.save(campusEntity));
+    }
 }

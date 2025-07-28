@@ -22,4 +22,17 @@ public class JogoService {
         return jogoDTOS;
     }
 
+    @Transactional
+    public void registrarResultado(Long idJogo, JogoDTO dto) {
+        JogoEntity jogo = jogoRepository.findById(idJogo)
+                .orElseThrow(() -> new RuntimeException("Jogo no encontrado"));
+
+        jogo.setPlacarA(dto.getPlacarA());
+        jogo.setPlacarB(dto.getPlacarB());
+        jogo.setWoEquipeA(dto.getWoEquipeA());
+        jogo.setWoEquipeB(dto.getWoEquipeB());
+
+        jogoRepository.save(jogo);
+    }
+
 }
