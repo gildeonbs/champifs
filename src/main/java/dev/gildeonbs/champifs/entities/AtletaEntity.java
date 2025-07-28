@@ -36,6 +36,10 @@ public class AtletaEntity {
     @Column(name = "tipo", length = 10, nullable = false)
     private String tipo;
 
+    // Relacionamento muitos-para-um entre esta entidade e EquipeEntity.
+    // Muitos objetos desta entidade podem estar associados a uma única equipe.
+    // Este é o lado "dono" da relação e conterá a chave estrangeira no banco de dados (equipe_id).
+    // O carregamento da equipe é feito de forma preguiçosa (LAZY), ou seja, só é feito quando o atributo for acessado.
     @ManyToOne (fetch = FetchType.LAZY) // lado "dono"
     @JoinColumn(name = "id_equipe_fk")
     private EquipeEntity equipe;
