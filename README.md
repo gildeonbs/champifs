@@ -110,7 +110,7 @@ POST http://localhost:8080/campi
 ```
 
 ```http
-GET http://localhost:8080/cursos
+POST http://localhost:8080/cursos
 ```
 ```json
 {
@@ -126,7 +126,7 @@ GET http://localhost:8080/cursos
 ```
 
 ```http
-GET http://localhost:8080/arbitros
+POST http://localhost:8080/arbitros
 ```
 ```json
 {
@@ -137,7 +137,7 @@ GET http://localhost:8080/arbitros
 ```
 
 ```http
-GET http://localhost:8080/coordenadores
+POST http://localhost:8080/coordenadores
 ```
 ```json
 {
